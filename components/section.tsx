@@ -10,7 +10,7 @@ export function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl scroll-mt-16 px-6 py-14">
+    <section id={id} className="mx-auto max-w-6xl scroll-mt-28 sm:scroll-mt-16 px-6 py-14">
       <h2 className="flex items-center gap-3 font-serif text-3xl font-bold tracking-tight">
         <span aria-hidden className="h-8 w-2 rounded-[1px] bg-seal" />
         {title}

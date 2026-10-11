@@ -40,7 +40,9 @@ export default async function ProjectPage({
       </Link>
 
       <div className="mt-6 flex flex-col gap-10 md:flex-row md:items-start">
-        <div className={project.portrait ? "shrink-0" : "md:w-1/2 md:shrink-0"}>
+        <div className={project.portrait
+            ? "w-full shrink-0 md:w-[calc(min(80vh,900px)*720/1458)]"
+            : "md:w-1/2 md:shrink-0"}>
           {project.fullVideo ? (
             // Full recording with its own audio: controls on, not muted.
             <video
@@ -51,7 +53,7 @@ export default async function ProjectPage({
               aria-label={text.name}
               className={`rounded-xl bg-black object-contain shadow-xl ${
                 project.portrait
-                  ? "mx-auto aspect-[720/1458] h-[min(80vh,900px)] max-w-full"
+                  ? "mx-auto aspect-[720/1458] w-[min(100%,calc(min(80vh,900px)*720/1458))]"
                   : "aspect-video w-full"
               }`}
             >
@@ -86,7 +88,7 @@ export default async function ProjectPage({
           ) : (
             <div
               className={`relative overflow-hidden rounded-xl bg-foreground/5 shadow-xl ${
-                project.portrait ? "mx-auto aspect-[720/1458] h-[min(80vh,900px)]" : "aspect-[16/10] w-full"
+                project.portrait ? "mx-auto aspect-[720/1458] w-[min(100%,calc(min(80vh,900px)*720/1458))]" : "aspect-[16/10] w-full"
               }`}
             >
               <Image
