@@ -155,6 +155,18 @@ export default async function ProjectPage({
             </ul>
           </div>
 
+          {project.demo && project.demoAccount && (
+            <div className="rounded-xl border border-seal/30 bg-seal/5 p-5">
+              <p className="text-sm font-medium">{dict.projects.demoAccount.title}</p>
+              <dl className="mt-3 grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 text-sm">
+                <dt className="text-foreground/60">{dict.projects.demoAccount.email}</dt>
+                <dd className="font-mono select-all">{project.demoAccount.email}</dd>
+                <dt className="text-foreground/60">{dict.projects.demoAccount.password}</dt>
+                <dd className="font-mono select-all">{project.demoAccount.password}</dd>
+              </dl>
+            </div>
+          )}
+
           {(project.demo || project.repo) && (
             <div className="flex flex-wrap gap-3 text-sm font-medium">
               {project.demo && (
