@@ -14,7 +14,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <main className="flex-1">
-      <section className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-start justify-center gap-10 px-6 py-20 md:flex-row md:items-center">
+      <section className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center justify-center gap-10 px-6 py-20 text-center md:flex-row md:text-left">
         <Image
           src={withBase("/profile.jpg")}
           alt={profile.name}
@@ -23,11 +23,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           priority
           className="size-44 shrink-0 rounded-full object-cover ring-4 ring-seal shadow-xl sm:size-56 md:size-64"
         />
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col items-center gap-6 md:items-start">
           <p className="font-mono text-sm font-medium text-seal">{dict.hero.role}</p>
-          <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
+          <h1 className="font-serif text-[clamp(1.5rem,7.4vw,2.25rem)] font-bold tracking-tight max-sm:whitespace-nowrap sm:text-5xl md:text-6xl">{profile.name}</h1>
           <p className="max-w-2xl text-xl leading-8 text-foreground/70">{dict.hero.tagline}</p>
-          <div className="flex flex-wrap gap-3 pt-2 text-sm font-medium">
+          <div className="flex flex-wrap justify-center gap-3 pt-2 text-sm font-medium md:justify-start">
             <a href="#projects" className="rounded-full bg-seal px-5 py-3 text-on-seal transition-colors hover:bg-seal-dark">
               {dict.hero.seeProjects}
             </a>
