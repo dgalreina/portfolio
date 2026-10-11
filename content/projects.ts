@@ -1,8 +1,8 @@
 export type Project = {
   slug: "zitytraining" | "china-history" | "historical-documents-reader";
   tech: string[];
-  /** Screenshot shown by default. Drop real ones in public/projects/. */
-  image: string;
+  /** Screenshot shown by default. Omit it (project not built yet) to show an empty box. */
+  image?: string;
   /** Short muted loop (MP4/H.264) played on hover. Omit if there is none yet. */
   video?: string;
   /** Vertical (phone) recording: the card media box uses the video's own ratio. */
@@ -71,7 +71,6 @@ export const projects: Project[] = [
   {
     slug: "historical-documents-reader",
     tech: ["Next.js", "NestJS", "MongoDB", "TypeScript"],
-    image: "/projects/historical-documents-reader.svg",
     status: "in-progress",
   },
 ];

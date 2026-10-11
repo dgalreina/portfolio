@@ -19,7 +19,7 @@ export const es = {
     subtitle: "Tres apps, cada una con su propio backend. Pasa el ratón para verlas en acción y pulsa para ver el detalle.",
     demo: "Demo",
     repo: "GitHub",
-    inProgress: "En desarrollo",
+    inProgress: "En progreso",
     back: "Proyectos",
     technologies: "Tecnologías",
     demoAccount: {"title": "Prueba la demo con esta cuenta", "email": "Email", "password": "Contraseña"},

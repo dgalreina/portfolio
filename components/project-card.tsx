@@ -12,7 +12,7 @@ type Props = {
   name: string;
   description: string;
   tech: string[];
-  image: string;
+  image?: string;
   video?: string;
   /** Vertical (phone) media: the card box gets the video's own 540:1092 ratio. */
   portrait?: boolean;
@@ -76,7 +76,7 @@ export function ProjectCard({
     >
       <div
         ref={mediaRef}
-        className={`relative flex justify-center overflow-hidden bg-foreground/5 ${
+        className={`relative flex justify-center overflow-hidden ${image ? "bg-foreground/5" : ""} ${
           portrait ? "py-3" : "aspect-[16/10]"
         }`}
       >
@@ -88,13 +88,15 @@ export function ProjectCard({
               : "absolute inset-0"
           }
         >
-          <Image
-            src={image}
-            alt={name}
-            fill
-            sizes={portrait ? "200px" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
-            className="object-cover"
-          />
+          {image && (
+            <Image
+              src={image}
+              alt={name}
+              fill
+              sizes={portrait ? "200px" : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+              className="object-cover"
+            />
+          )}
           {hasVideo && (
             <video
               ref={videoRef}
@@ -113,11 +115,19 @@ export function ProjectCard({
             />
           )}
         </div>
-        {badge && (
-          <span className="absolute left-3 top-3 rounded-full bg-seal px-3 py-1 text-xs font-medium text-on-seal">
-            {badge}
-          </span>
-        )}
+        {badge &&
+          (image ? (
+            <span className="absolute left-3 top-3 rounded-full bg-seal px-3 py-1 text-xs font-medium text-on-seal">
+              {badge}
+            </span>
+          ) : (
+            // Nothing to show yet: just the status, centered on the card background.
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="rounded-full border border-seal/40 px-4 py-1.5 text-sm font-medium text-seal">
+                {badge}
+              </span>
+            </span>
+          ))}
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-5">

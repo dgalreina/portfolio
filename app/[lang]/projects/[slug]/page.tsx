@@ -87,25 +87,35 @@ export default async function ProjectPage({
             </ul>
           ) : (
             <div
-              className={`relative overflow-hidden rounded-xl bg-foreground/5 shadow-xl ${
+              className={`relative overflow-hidden rounded-xl ${
+                project.image ? "bg-foreground/5 shadow-xl" : "border border-foreground/10"
+              } ${
                 project.portrait ? "mx-auto aspect-[720/1458] w-[min(100%,calc(min(80vh,900px)*720/1458))]" : "aspect-[16/10] w-full"
               }`}
             >
-              <Image
-                src={withBase(project.image)}
-                alt={text.name}
-                fill
-                priority
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
+              {project.image ? (
+                <Image
+                  src={withBase(project.image)}
+                  alt={text.name}
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="rounded-full border border-seal/40 px-4 py-1.5 text-sm font-medium text-seal">
+                    {dict.projects.inProgress}
+                  </span>
+                </span>
+              )}
             </div>
           )}
         </div>
 
         <div className="flex min-w-0 flex-1 flex-col gap-6 md:sticky md:top-20">
           <div>
-            {project.status === "in-progress" && (
+            {project.status === "in-progress" && project.image && (
               <span className="mb-3 inline-block rounded-full bg-seal px-3 py-1 text-xs font-medium text-on-seal">
                 {dict.projects.inProgress}
               </span>

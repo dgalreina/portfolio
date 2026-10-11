@@ -49,7 +49,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 name={text.name}
                 description={text.description}
                 tech={p.tech}
-                image={withBase(p.image)}
+                image={p.image && withBase(p.image)}
                 video={p.video && withBase(p.video)}
                 portrait={p.portrait}
                 demo={p.demo}
