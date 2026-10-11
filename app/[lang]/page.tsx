@@ -24,7 +24,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           className="size-44 shrink-0 rounded-full object-cover ring-4 ring-seal shadow-xl sm:size-56 md:size-64"
         />
         <div className="flex flex-col items-center gap-6 md:items-start">
-          <p className="font-mono text-sm font-medium text-seal">{dict.hero.role}</p>
+          <p className="text-base font-medium text-seal">{dict.hero.role}</p>
           <h1 className="font-serif text-[clamp(1.5rem,7.4vw,2.25rem)] font-bold tracking-tight max-sm:whitespace-nowrap sm:text-5xl md:text-6xl">{profile.name}</h1>
           <p className="max-w-2xl text-xl leading-8 text-foreground/70">{dict.hero.tagline}</p>
           <div className="flex flex-wrap justify-center gap-3 pt-2 text-sm font-medium md:justify-start">
