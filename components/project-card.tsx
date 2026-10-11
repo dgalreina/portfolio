@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
+// The card shows a few technologies; the detail page lists them all.
+const MAX_TECH = 6;
+
 type Props = {
   href: string;
   name: string;
@@ -126,11 +129,16 @@ export function ProjectCard({
         </h3>
         <p className="text-sm leading-6 text-foreground/70">{description}</p>
         <ul className="flex flex-wrap gap-2">
-          {tech.map((t) => (
+          {tech.slice(0, MAX_TECH).map((t) => (
             <li key={t} className="rounded-md bg-foreground/[0.07] px-2 py-1 font-mono text-xs">
               {t}
             </li>
           ))}
+          {tech.length > MAX_TECH && (
+            <li className="px-1 py-1 font-mono text-xs text-foreground/60">
+              +{tech.length - MAX_TECH}
+            </li>
+          )}
         </ul>
         {(demo || repo) && (
           <div className="relative z-10 mt-auto flex gap-3 pt-3 text-sm font-medium">

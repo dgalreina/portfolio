@@ -15,6 +15,8 @@ export type Project = {
   gallery?: { src: string; width: number; height: number }[];
   demo?: string;
   repo?: string;
+  /** No public repo: the detail page offers to share it on request (email). */
+  repoOnRequest?: boolean;
   status: "live" | "in-progress";
 };
 
@@ -22,10 +24,22 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "zitytraining",
-    tech: ["Next.js", "NestJS", "MongoDB", "TypeScript"],
+    tech: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "NestJS",
+      "MongoDB",
+      "JWT",
+      "Stripe",
+      "DigitalOcean",
+      "MongoDB Atlas",
+    ],
     image: "/projects/zitytraining.jpg",
     video: "/projects/zitytraining.mp4",
     portrait: true,
+    repoOnRequest: true,
     demo: "https://zitytraining-web-6tkjf.ondigitalocean.app/",
     fullVideo: "/projects/zitytraining-full.mp4",
     poster: "/projects/zitytraining-poster.jpg",
