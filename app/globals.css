@@ -8,16 +8,7 @@
   --seal: #8e1b1b;
   --seal-dark: #6c1212;
   --on-seal: #f6efe4;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #150d0c;
-    --foreground: #ebe0d0;
-    --seal: #b3302a;
-    --seal-dark: #8e1f1b;
-    --on-seal: #f6efe4;
-  }
+  color-scheme: light;
 }
 
 @theme inline {
