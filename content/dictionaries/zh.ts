@@ -14,7 +14,7 @@ export const zh: Dictionary = {
   },
   projects: {
     title: "项目",
-    subtitle: "三个应用，各有独立的后端。将鼠标悬停在卡片上即可预览，点击查看详情。",
+    subtitle: "三个应用，各有独立的后端。查看它们的实际运行效果，点击了解详情。",
     demo: "演示",
     repo: "GitHub",
     inProgress: "开发中",

@@ -16,7 +16,7 @@ export const es = {
   },
   projects: {
     title: "Proyectos",
-    subtitle: "Tres apps, cada una con su propio backend. Pasa el ratón para verlas en acción y pulsa para ver el detalle.",
+    subtitle: "Tres apps, cada una con su propio backend. Míralas en acción y pulsa para ver el detalle.",
     demo: "Demo",
     repo: "GitHub",
     inProgress: "En progreso",
