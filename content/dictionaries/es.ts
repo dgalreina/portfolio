@@ -4,7 +4,7 @@ export const es = {
   meta: {
     title: "Portfolio · Desarrollador full-stack senior",
     description:
-      "Portfolio de un desarrollador full-stack senior JavaScript/TypeScript: proyectos, CV y contacto.",
+      "Diego Galisteo Reina, desarrollador full-stack senior. Proyectos, CV y contacto.",
   },
   nav: { projects: "Proyectos", cv: "CV", contact: "Contacto", language: "Idioma" },
   hero: {

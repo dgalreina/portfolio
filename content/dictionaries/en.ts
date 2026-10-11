@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "Portfolio · Senior full-stack developer",
     description:
-      "Portfolio of a senior full-stack JavaScript/TypeScript developer: projects, résumé and contact.",
+      "Diego Galisteo Reina, senior full-stack developer. Projects, résumé and contact.",
   },
   nav: { projects: "Projects", cv: "Résumé", contact: "Contact", language: "Language" },
   hero: {

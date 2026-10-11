@@ -3,7 +3,8 @@ import type { Dictionary } from "./es";
 export const zh: Dictionary = {
   meta: {
     title: "作品集 · 高级全栈开发者",
-    description: "JavaScript/TypeScript 高级全栈开发者的作品集：项目、简历与联系方式。",
+    description:
+      "Diego Galisteo Reina，高级全栈开发者。项目、简历与联系方式。",
   },
   nav: { projects: "项目", cv: "简历", contact: "联系", language: "语言" },
   hero: {
