@@ -1,0 +1,69 @@
+import type { Dictionary } from "./es";
+
+export const zh: Dictionary = {
+  meta: {
+    title: "作品集 · 高级全栈开发者",
+    description: "JavaScript/TypeScript 高级全栈开发者的作品集：项目、简历与联系方式。",
+  },
+  nav: { projects: "项目", cv: "简历", contact: "联系", language: "语言" },
+  hero: {
+    role: "高级全栈开发者",
+    tagline: "使用 React、Node.js、NestJS 和 MongoDB 构建完整的 Web 应用。",
+    seeProjects: "查看项目",
+    contactMe: "联系我",
+  },
+  projects: {
+    title: "项目",
+    subtitle: "三个应用，各有独立的后端。将鼠标悬停在卡片上即可预览，点击查看详情。",
+    demo: "演示",
+    repo: "代码仓库",
+    inProgress: "开发中",
+    back: "项目",
+    features: "功能",
+    technologies: "技术栈",
+    items: {
+      "zitytraining": {"name": "Zitytraining", "description": "面向私人教练的管理应用：课程排期、客户、打卡与节假日。", "details": ["Zitytraining 是一款适合在手机上使用的 Web 应用，私人教练可以用它安排日常工作：课程日程、客户、考勤打卡和训练计划。", "视频演示了主要流程：按日或按周查看日历，为多名客户创建循环课程，并在日程中查看结果。"], "features": ["按日、按周的日历，支持筛选并可向客户发送提醒。", "创建课程：教练、开始时间、时长、单次或每周重复、每节课最多 3 名客户，并可添加备注。", "上下班打卡，支持手动补录；若忘记下班打卡，系统会在 22:00 自动结束。", "自动加载全国及卡斯蒂利亚-莱昂地区的节假日，也可手动添加本地节日。", "管理客户、训练、计划、教练和账务。", "每位教练拥有个人资料，并在日历中使用专属颜色。"], "gallery": []},
+      "china-history": {"name": "中国历史", "description": "中国历史交互式地图：选择地点和年份，AI 会基于真实史料还原当时的场景，并配以文字与插图。", "details": ["China History 是一幅可交互的地图，用来浏览从夏朝到清朝的中国历史。你在地图上选一个点，并在按朝代划分的时间轴上选择年份，应用就会还原那一刻，生成历史叙述和插图。", "背后是一条结合多个模型与真实知识库的 AI 流程：Claude 撰写叙述和图像提示词，OpenAI 以真实文物照片为参考生成插图，第三个模型则审查每张图片并向“历史学家”反馈。"], "features": ["卫星地图展示各时期的行政区划，时间轴按朝代划分，从夏到清。", "每个历史节点都有地图视图和文字视图，包含叙述、插图，以及相关事件和后续故事的链接。", "真实的历史地理定位（CHGIS），并在 MongoDB 中检测有文献记载的历史节点。", "基于已索引历史书籍的 RAG，使用 MongoDB Atlas 向量搜索，并按朝代和地区补充建筑背景。", "600 多个真实人物形象用于服饰参考，可按年份、章节和地点筛选；每张图最多使用 16 张真实照片作为参考。", "使用视觉模型（Claude Opus）自动审查图片，并提供建议面板，由用户逐条批准或舍弃；被采纳的建议会汇总成指南，用于改进后续叙述。"], "gallery": ["首页与卫星地图，以及按朝代划分的时间轴。", "历史节点的文字视图：南阳，公元 25 年，包含生成的叙述和插图。", "AI 流程架构：LangGraph 编排、RAG、Claude、OpenAI 与图片审查。"]},
+      "historical-documents-reader": {"name": "Historical Documents Reader", "description": "用于阅读和浏览历史文献的应用，目前正在开发中。", "details": ["TODO：项目的详细介绍。"], "features": [], "gallery": []},
+    },
+  },
+  cv: {
+    title: "简历",
+    subtitle: "工作经历、教育背景与技术栈。",
+    download: "下载简历（PDF）",
+    summary: "拥有 14 年以上经验的高级软件工程师，专注于构建可扩展的 Web 应用，擅长 3D 可视化以及基于大语言模型（LLM）的 AI 解决方案。具备扎实的全栈开发、系统设计与性能优化功底。",
+    experience: "工作经历",
+    education: "教育背景",
+    skills: "技术栈",
+    languages: "语言能力",
+    skillLabels: {"frontend": "前端", "backend": "后端", "databases": "数据库", "ai": "AI / 大模型", "other": "其他"},
+    experienceItems: [
+      {"title": "全栈开发工程师", "place": "自由职业 · 马德里", "period": "2026年5月 – 至今", "description": "", "tech": []},
+      {"title": "全栈开发工程师", "place": "Scriptum-AI · 马德里", "period": "2025年2月 – 2026年5月", "description": "开发基于大语言模型的生产级应用。Leonardo：分析真实法庭庭审的视频与音频，自动转写、摘要并生成结构化报告；Scriptum Contract：智能文档比对。负责 LLM 生产环境集成、提示词工程与系统架构。", "tech": ["React", "Node.js", "Angular", "Python", "LLMs (Claude)"]},
+      {"title": "全栈开发工程师", "place": "Nexplore (Dimática) · 马德里 · 客户 Nexplore US 与 Hotchief Germany", "period": "2020年12月 – 2025年2月", "description": "高性能 3D 平台，用于管理点云、3D 模型和正射影像。开发测量工具、体积计算与元素映射；优化浏览器端大规模数据集的渲染，与美国和德国的远程团队协作。", "tech": ["Angular", "Python", "React", "Three.js", "Node.js", "MongoDB", "WebGL"]},
+      {"title": "全栈开发工程师", "place": "Mapfre (Capgemini) · 马德里", "period": "2019年10月 – 2020年12月", "description": "NSEc 车辆管理系统：从需求分析开始从零构建内部应用。主导 Angular 前端开发，集成 REST 与 SOAP 服务，并参与 Java (Spring) 后端开发，采用 Scrum 敏捷流程。", "tech": ["Angular", "Java", "Spring", "REST/SOAP", "JUnit"]},
+      {"title": "DSD 中国团队协调员", "place": "DigitalSmileDesign · 马德里", "period": "2018年7月 – 2019年10月", "description": "日常协调上海设计团队的工作，经常前往上海办公室进行培训与管理，并开发工具简化设计工作，在中文环境中工作。", "tech": ["Visual Basic"]},
+      {"title": "全栈开发工程师", "place": "Vintegris · 马德里 · 客户 BBVA", "period": "2015年7月 – 2018年7月", "description": "参与 BBVA 核心安全系统的演进与现代化：迁移至微服务架构，为关键安全组件开发新功能，设计并维护 SQL 与 MongoDB 数据库，使用 Vaadin 构建内部配置工具，工作环境要求高安全性与高可用性。", "tech": ["Java", "Spring", "Kubernetes", "MongoDB", "SQL", "Angular"]},
+      {"title": "图形开发工程师", "place": "Continex · 马德里 · 客户 Nolve", "period": "2015年3月 – 2015年7月", "description": "开发支持 FreeType 字体的自研图形库以取代 SDL，提升渲染的灵活性与性能。", "tech": ["C/C++", "SDL", "FreeType"]},
+      {"title": "Web 开发者", "place": "自由职业 · 马德里与伦敦", "period": "2013年8月 – 2015年3月", "description": "为客户和个人项目开发网站与 Web 应用，负责从开发到部署的全过程。", "tech": ["HTML", "CSS", "JavaScript"]},
+      {"title": "Unity 开发者与技术美术", "place": "Topcells · 中国上海", "period": "2012年7月 – 2013年6月", "description": "开发 2D/3D 互动应用：使用 Unity3D 实现游戏系统，制作并集成实时 2D/3D 资源。", "tech": ["Unity3D", "C#"]},
+      {"title": "计算机工程师与平面设计师", "place": "西班牙驻上海总领事馆 · 中国上海", "period": "2010年12月 – 2011年10月", "description": "负责 IT 基础设施、服务器、网络与网站，并为会议和活动提供技术支持，工作环境国际化。", "tech": []},
+    ],
+    educationItems: [
+      {"title": "计算机工程学士", "place": "巴利亚多利德大学 (UVA)", "period": "", "description": "毕业论文以优异成绩通过。", "tech": []},
+      {"title": "电子游戏开发硕士", "place": "马德里康普顿斯大学 (UCM)", "period": "", "description": "", "tech": []},
+      {"title": "3D 设计硕士", "place": "Trazos · 马德里", "period": "", "description": "", "tech": []},
+    ],
+    languageItems: [
+      {"name": "西班牙语", "level": "母语"},
+      {"name": "英语", "level": "C1"},
+      {"name": "中文", "level": "高级 · HSK 4 (B1)，已获 HSK 3 证书"},
+    ],
+  },
+  contact: {
+    title: "联系",
+    text: "有项目或职位机会？给我发邮件，我会尽快回复。",
+    email: "发送邮件",
+  },
+  footer: "使用 Next.js 与 Tailwind CSS 构建",
+};

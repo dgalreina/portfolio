@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
+/* Palette: aged paper, ink and a dark vermilion seal red (same paper/ink/seal
+   structure as the china-travel project, with the red accent). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #efe9de;
+  --foreground: #1d1816;
+  --seal: #8e1b1b;
+  --seal-dark: #6c1212;
+  --on-seal: #f6efe4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #150d0c;
+    --foreground: #ebe0d0;
+    --seal: #b3302a;
+    --seal-dark: #8e1f1b;
+    --on-seal: #f6efe4;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-seal: var(--seal);
+  --color-seal-dark: var(--seal-dark);
+  --color-on-seal: var(--on-seal);
+  /* Geist has no CJK glyphs: fall back to the system Chinese fonts. */
+  --font-sans: var(--font-geist-sans), "PingFang SC", "Microsoft YaHei",
+    "Noto Sans SC", "Hiragino Sans GB", system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: "Noto Serif SC", "Songti SC", STSong, SimSun, Georgia, serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }

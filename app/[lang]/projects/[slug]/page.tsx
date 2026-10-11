@@ -1,0 +1,170 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { projects } from "@/content/projects";
+import { withBase } from "@/lib/assets";
+import { getDictionary, hasLocale, locales } from "@/lib/i18n";
+
+export function generateStaticParams() {
+  return locales.flatMap((lang) => projects.map((p) => ({ lang, slug: p.slug })));
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps<"/[lang]/projects/[slug]">): Promise<Metadata> {
+  const { lang, slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!hasLocale(lang) || !project) return {};
+  const text = getDictionary(lang).projects.items[project.slug];
+  return { title: text.name, description: text.description };
+}
+
+export default async function ProjectPage({
+  params,
+}: PageProps<"/[lang]/projects/[slug]">) {
+  const { lang, slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!hasLocale(lang) || !project) notFound();
+
+  const dict = getDictionary(lang);
+  const text = dict.projects.items[project.slug];
+
+  return (
+    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
+      <Link
+        href={`/${lang}#projects`}
+        className="text-sm text-foreground/70 transition-colors hover:text-foreground"
+      >
+        ← {dict.projects.back}
+      </Link>
+
+      <div className="mt-6 flex flex-col gap-10 md:flex-row md:items-start">
+        <div className={project.portrait ? "shrink-0" : "md:w-1/2 md:shrink-0"}>
+          {project.fullVideo ? (
+            // Full recording with its own audio: controls on, not muted.
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster={project.poster && withBase(project.poster)}
+              aria-label={text.name}
+              className={`rounded-xl bg-black object-contain shadow-xl ${
+                project.portrait
+                  ? "mx-auto aspect-[720/1458] h-[min(80vh,900px)] max-w-full"
+                  : "aspect-video w-full"
+              }`}
+            >
+              <source src={withBase(project.fullVideo)} type="video/mp4" />
+            </video>
+          ) : project.gallery ? (
+            <ul className="space-y-4">
+              {project.gallery.map((img, i) => (
+                <li key={img.src}>
+                  {/* Opens the full-size file: the screenshots contain small text. */}
+                  <a href={withBase(img.src)} target="_blank" rel="noopener noreferrer">
+                    <figure>
+                      <Image
+                        src={withBase(img.src)}
+                        alt={text.gallery[i] ?? text.name}
+                        width={img.width}
+                        height={img.height}
+                        priority={i === 0}
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="h-auto w-full rounded-xl shadow-xl"
+                      />
+                      {text.gallery[i] && (
+                        <figcaption className="mt-2 text-sm text-foreground/60">
+                          {text.gallery[i]}
+                        </figcaption>
+                      )}
+                    </figure>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div
+              className={`relative overflow-hidden rounded-xl bg-foreground/5 shadow-xl ${
+                project.portrait ? "mx-auto aspect-[720/1458] h-[min(80vh,900px)]" : "aspect-[16/10] w-full"
+              }`}
+            >
+              <Image
+                src={withBase(project.image)}
+                alt={text.name}
+                fill
+                priority
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="flex min-w-0 flex-1 flex-col gap-6 md:sticky md:top-20">
+          <div>
+            {project.status === "in-progress" && (
+              <span className="mb-3 inline-block rounded-full bg-seal px-3 py-1 text-xs font-medium text-on-seal">
+                {dict.projects.inProgress}
+              </span>
+            )}
+            <h1 className="font-serif text-4xl font-bold tracking-tight">{text.name}</h1>
+          </div>
+
+          <div className="space-y-4 leading-7 text-foreground/80">
+            {text.details.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          {text.features.length > 0 && (
+            <div>
+              <h2 className="mb-3 font-serif text-lg font-semibold">{dict.projects.features}</h2>
+              <ul className="space-y-2 border-l-2 border-seal/40 pl-5 text-sm leading-6 text-foreground/80">
+                {text.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div>
+            <h2 className="mb-3 font-serif text-lg font-semibold">{dict.projects.technologies}</h2>
+            <ul className="flex flex-wrap gap-2">
+              {project.tech.map((t) => (
+                <li key={t} className="rounded-md bg-foreground/[0.07] px-2 py-1 font-mono text-xs">
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {(project.demo || project.repo) && (
+            <div className="flex flex-wrap gap-3 text-sm font-medium">
+              {project.demo && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-seal px-5 py-3 text-on-seal transition-colors hover:bg-seal-dark"
+                >
+                  {dict.projects.demo} ↗
+                </a>
+              )}
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-full border border-foreground/20 px-5 py-3 transition-colors hover:bg-foreground/10"
+                >
+                  {dict.projects.repo} ↗
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </main>
+  );
+}
