@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { withBase } from "@/lib/assets";
 import { getDictionary, hasLocale, locales } from "@/lib/i18n";
@@ -181,19 +180,6 @@ export default async function ProjectPage({
             </div>
           )}
 
-          {project.repoOnRequest && !project.repo && (
-            <div className="rounded-xl border border-seal/30 bg-seal/5 p-5">
-              <p className="text-sm leading-6 text-foreground/80">{dict.projects.repoRequest.text}</p>
-              <a
-                href={`mailto:${profile.email}?subject=${encodeURIComponent(
-                  `${dict.projects.repoRequest.subject}: ${text.name}`,
-                )}`}
-                className="mt-4 inline-block rounded-full bg-seal px-5 py-3 text-sm font-medium text-on-seal transition-colors hover:bg-seal-dark"
-              >
-                ✉ {dict.projects.repoRequest.button}
-              </a>
-            </div>
-          )}
         </div>
       </div>
     </main>

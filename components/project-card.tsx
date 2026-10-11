@@ -141,7 +141,7 @@ export function ProjectCard({
           )}
         </ul>
         {(demo || repo) && (
-          <div className="relative z-10 mt-auto flex gap-3 pt-3 text-sm font-medium">
+          <div className="relative z-10 mt-auto flex flex-wrap gap-3 pt-3 text-sm font-medium">
             {demo && (
               <a
                 href={demo}

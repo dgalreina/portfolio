@@ -14,9 +14,8 @@ export type Project = {
   /** Extra screenshots for the detail page (captions live in the dictionaries, same order). */
   gallery?: { src: string; width: number; height: number }[];
   demo?: string;
+  /** Where the code lives; the visitor picks the repo from there. */
   repo?: string;
-  /** No public repo: the detail page offers to share it on request (email). */
-  repoOnRequest?: boolean;
   status: "live" | "in-progress";
 };
 
@@ -39,8 +38,8 @@ export const projects: Project[] = [
     image: "/projects/zitytraining.jpg",
     video: "/projects/zitytraining.mp4",
     portrait: true,
-    repoOnRequest: true,
     demo: "https://zitytraining-web-6tkjf.ondigitalocean.app/",
+    repo: "https://github.com/dgalreina",
     fullVideo: "/projects/zitytraining-full.mp4",
     poster: "/projects/zitytraining-poster.jpg",
     status: "live",
