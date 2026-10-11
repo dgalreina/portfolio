@@ -8,7 +8,7 @@ export const zh: Dictionary = {
   nav: { projects: "项目", cv: "简历", contact: "联系", language: "语言" },
   hero: {
     role: "高级全栈开发者",
-    tagline: "使用 React、Node.js、NestJS 和 MongoDB 构建完整的 Web 应用。",
+    tagline: "我用 React、Angular、Node (NestJS) 或 Python 端到端构建 Web 应用，代码晶莹剔透。",
     seeProjects: "查看项目",
     contactMe: "联系我",
   },

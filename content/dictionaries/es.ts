@@ -10,7 +10,7 @@ export const es = {
   hero: {
     role: "Desarrollador full-stack senior",
     tagline:
-      "Construyo aplicaciones web de punta a punta con React, Node.js, NestJS y MongoDB.",
+      "Construyo aplicaciones web de punta a punta con React, Angular, Node (NestJS) o Python. Y código cristalino.",
     seeProjects: "Ver proyectos",
     contactMe: "Contactar",
   },

@@ -10,7 +10,7 @@ export const en: Dictionary = {
   hero: {
     role: "Senior full-stack developer",
     tagline:
-      "I build web applications end to end with React, Node.js, NestJS and MongoDB.",
+      "I build web applications end to end with React, Angular, Node (NestJS) or Python. And crystal-clear code.",
     seeProjects: "See projects",
     contactMe: "Get in touch",
   },
