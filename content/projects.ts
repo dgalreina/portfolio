@@ -49,7 +49,16 @@ export const projects: Project[] = [
   },
   {
     slug: "china-history",
-    tech: ["LangGraph", "Claude", "OpenAI", "MongoDB Atlas", "RAG", "DigitalOcean Spaces"],
+    tech: [
+      "NestJS",
+      "LangGraph",
+      "LangChain",
+      "MongoDB Atlas",
+      "Anthropic",
+      "OpenAI",
+      "Next.js",
+      "DigitalOcean Spaces",
+    ],
     image: "/projects/china-history.jpg",
     demo: "https://china-history-web-3es2e.ondigitalocean.app/",
     gallery: [

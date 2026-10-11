@@ -111,6 +111,9 @@ export default async function ProjectPage({
               </span>
             )}
             <h1 className="font-serif text-4xl font-bold tracking-tight">{text.name}</h1>
+            {text.tagline && (
+              <p className="mt-2 font-serif text-xl text-seal">{text.tagline}</p>
+            )}
           </div>
 
           <div className="space-y-4 leading-7 text-foreground/80">
@@ -119,15 +122,15 @@ export default async function ProjectPage({
             ))}
           </div>
 
-          {text.features.length > 0 && (
-            <div>
-              <h2 className="mb-3 font-serif text-lg font-semibold">{dict.projects.features}</h2>
+          {text.sections.map((section) => (
+            <div key={section.title}>
+              <h2 className="mb-3 font-serif text-lg font-semibold">{section.title}</h2>
               <ul className="space-y-2 border-l-2 border-seal/40 pl-5 text-sm leading-6 text-foreground/80">
-                {text.features.map((feature) => {
+                {section.items.map((item) => {
                   // "Lead — description": the lead is shown in bold.
-                  const [lead, ...rest] = feature.split(" — ");
+                  const [lead, ...rest] = item.split(" — ");
                   return (
-                    <li key={feature}>
+                    <li key={item}>
                       {rest.length > 0 ? (
                         <>
                           <strong className="font-semibold text-foreground">{lead}</strong>
@@ -135,14 +138,14 @@ export default async function ProjectPage({
                           {rest.join(" — ")}
                         </>
                       ) : (
-                        feature
+                        item
                       )}
                     </li>
                   );
                 })}
               </ul>
             </div>
-          )}
+          ))}
 
           <div>
             <h2 className="mb-3 font-serif text-lg font-semibold">{dict.projects.technologies}</h2>
