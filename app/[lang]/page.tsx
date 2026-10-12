@@ -6,14 +6,30 @@ import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { withBase } from "@/lib/assets";
 import { getDictionary, hasLocale } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
+  // Structured data so search engines know this is a person's site.
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: dict.hero.role,
+    url: `${SITE_URL}/${lang}/`,
+    image: `${SITE_URL}/profile.jpg`,
+    sameAs: [profile.github, profile.linkedin],
+  };
+
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }}
+      />
       <section className="mx-auto flex min-h-[70vh] max-w-6xl flex-col items-center justify-center gap-10 px-6 py-20 text-center md:flex-row md:text-left">
         <Image
           src={withBase("/profile.jpg")}

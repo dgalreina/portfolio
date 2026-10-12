@@ -2,7 +2,7 @@ import type { Dictionary } from "./es";
 
 export const zh: Dictionary = {
   meta: {
-    title: "作品集 · 高级全栈开发者",
+    title: "Diego Galisteo Reina · 高级全栈开发者",
     description:
       "Diego Galisteo Reina，高级全栈开发者。项目、简历与联系方式。",
   },

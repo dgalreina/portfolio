@@ -2,7 +2,7 @@ export type Dictionary = typeof es;
 
 export const es = {
   meta: {
-    title: "Portfolio · Desarrollador full-stack senior",
+    title: "Diego Galisteo Reina · Desarrollador full-stack senior",
     description:
       "Diego Galisteo Reina, desarrollador full-stack senior. Proyectos, CV y contacto.",
   },

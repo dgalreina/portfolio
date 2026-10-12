@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { profile } from "@/content/profile";
 import { projects } from "@/content/projects";
 import { withBase } from "@/lib/assets";
 import { getDictionary, hasLocale, locales } from "@/lib/i18n";
+import { languageAlternates, localizedPath, ogLocale, SITE_URL } from "@/lib/site";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) => projects.map((p) => ({ lang, slug: p.slug })));
@@ -17,7 +19,25 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
   if (!hasLocale(lang) || !project) return {};
   const text = getDictionary(lang).projects.items[project.slug];
-  return { title: text.name, description: text.description };
+  const path = `/projects/${project.slug}/`;
+  const url = localizedPath(lang, path);
+  const title = `${text.name} · ${profile.name}`;
+  return {
+    metadataBase: new URL(SITE_URL),
+    title,
+    description: text.description,
+    alternates: { canonical: url, languages: languageAlternates(locales, path) },
+    openGraph: {
+      type: "article",
+      siteName: profile.name,
+      title,
+      description: text.description,
+      url,
+      locale: ogLocale[lang],
+      images: [{ url: project.image ?? "/profile.jpg" }],
+    },
+    twitter: { card: "summary_large_image", title, description: text.description },
+  };
 }
 
 export default async function ProjectPage({

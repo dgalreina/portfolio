@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/header";
+import { profile } from "@/content/profile";
 import { getDictionary, hasLocale, htmlLang, locales } from "@/lib/i18n";
+import { languageAlternates, localizedPath, ogLocale, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -25,7 +27,23 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const { meta } = getDictionary(lang);
-  return { title: meta.title, description: meta.description };
+  const url = localizedPath(lang);
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: url, languages: languageAlternates(locales) },
+    openGraph: {
+      type: "website",
+      siteName: profile.name,
+      title: meta.title,
+      description: meta.description,
+      url,
+      locale: ogLocale[lang],
+      images: [{ url: "/profile.jpg", width: 700, height: 700, alt: profile.name }],
+    },
+    twitter: { card: "summary", title: meta.title, description: meta.description },
+  };
 }
 
 export default async function LangLayout({
