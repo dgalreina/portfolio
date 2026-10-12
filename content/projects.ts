@@ -36,6 +36,8 @@ export const projects: Project[] = [
       "Stripe",
       "DigitalOcean",
       "MongoDB Atlas",
+      "Jest",
+      "Playwright",
     ],
     image: "/projects/zitytraining.jpg",
     video: "/projects/zitytraining.mp4",
