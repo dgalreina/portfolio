@@ -140,7 +140,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </Section>
 
       <footer className="border-t border-foreground/10 py-8 text-center text-sm text-foreground/50">
-        {profile.name} · {dict.footer}
+        {profile.name} ·{" "}
+        <a href={profile.website} className="underline-offset-4 hover:underline">
+          {profile.website.replace("https://", "")}
+        </a>{" "}
+        · {dict.footer}
       </footer>
     </main>
   );

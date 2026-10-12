@@ -87,7 +87,7 @@ function html(lang, dict) {
     <div>
       <h1 class="serif">${esc(profile.name)}</h1>
       <p class="role">${esc(dict.hero.role)}</p>
-      <p class="contact">${esc(profile.email)} · ${esc(profile.github.replace("https://", ""))}</p>
+      <p class="contact">${esc(profile.email)} · ${esc(profile.website.replace("https://", ""))} · ${esc(profile.github.replace("https://", ""))}</p>
     </div>
   </header>
 

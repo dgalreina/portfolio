@@ -2,6 +2,7 @@
 export const profile = {
   name: "Diego Galisteo Reina",
   email: "dgalreina@gmail.com",
+  website: "https://dgalreina.com",
   github: "https://github.com/dgalreina",
   linkedin: "https://www.linkedin.com/in/diego-galisteo-reina-b4b5b338",
   skillGroups: [
