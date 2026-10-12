@@ -24,16 +24,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Project site (https://<user>.github.io/<repo>/) needs "/<repo>" as base
-      # path; a user site (<user>.github.io repo) is served from the root.
-      - name: Set base path
-        run: |
-          repo="${{ github.event.repository.name }}"
-          if [[ "$repo" == *.github.io ]]; then
-            echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
-          else
-            echo "NEXT_PUBLIC_BASE_PATH=/$repo" >> "$GITHUB_ENV"
-          fi
+      # The site is served from the custom domain (dgalreina.com) root, so no
+      # base path. For a project site on https://<user>.github.io/<repo>/ set
+      # NEXT_PUBLIC_BASE_PATH=/<repo> here instead.
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
