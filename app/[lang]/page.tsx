@@ -168,11 +168,29 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
 const chip = "rounded-md bg-foreground/[0.07] px-2 py-1 font-mono text-xs";
 
+// Sub-sections of a role, e.g. "Key projects" (with named projects) or "Key contributions".
+type Block = {
+  heading: string;
+  items?: string[];
+  groups?: { title: string; items: string[] }[];
+};
+
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-6 text-foreground/70">
+      {items.map((text) => (
+        <li key={text}>{text}</li>
+      ))}
+    </ul>
+  );
+}
+
 type TimelineItem = {
   title: string;
   place: string;
   period: string;
   description: string;
+  blocks?: Block[];
   tech: string[];
 };
 
@@ -190,6 +208,20 @@ function Timeline({ title, items }: { title: string; items: TimelineItem[] }) {
             {item.description && (
               <p className="mt-2 text-sm leading-6 text-foreground/70">{item.description}</p>
             )}
+            {item.blocks?.map((block) => (
+              <div key={block.heading} className="mt-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">
+                  {block.heading}
+                </p>
+                {block.groups?.map((group) => (
+                  <div key={group.title} className="mt-2">
+                    <p className="text-sm font-medium">{group.title}</p>
+                    <Bullets items={group.items} />
+                  </div>
+                ))}
+                {block.items && <Bullets items={block.items} />}
+              </div>
+            ))}
             {item.tech.length > 0 && (
               <ul className="mt-3 flex flex-wrap gap-2">
                 {item.tech.map((t) => (

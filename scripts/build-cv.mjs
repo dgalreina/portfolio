@@ -51,16 +51,26 @@ const css = `
   h1 { margin: 0; font-size: 25pt; line-height: 1.15; }
   .role { margin: 1.5mm 0 0; color: var(--seal); font-weight: 600; font-size: 11.5pt; }
   .contact { margin: 2mm 0 0; color: var(--muted); font-size: 9pt; }
-  h2 { margin: 6mm 0 2.5mm; padding-left: 2.5mm; border-left: 1.2mm solid var(--seal); font-size: 12pt; line-height: 1.2; break-after: avoid; }
+  h2 { margin: 5mm 0 2mm; padding-left: 2.5mm; border-left: 1.2mm solid var(--seal); font-size: 12pt; line-height: 1.2; break-after: avoid; }
   p { margin: 0; }
   .summary { margin-top: 5mm; }
   dl.skills { display: grid; grid-template-columns: max-content 1fr; gap: 1mm 5mm; margin: 0; }
   dl.skills dt { color: var(--muted); font-weight: 600; }
   dl.skills dd { margin: 0; }
-  .item { margin-bottom: 4mm; break-inside: avoid; }
+  /* Long roles may split across pages; avoid ugly cuts (lone title, split bullet). */
+  .item { margin-bottom: 3mm; }
+  .item h3, .meta, .blk-h, .grp-t { break-after: avoid; }
+  .grp, .hl li, .tech { break-inside: avoid; }
+  p, li { orphans: 2; widows: 2; }
   .item h3 { margin: 0; font-size: 10.5pt; }
   .meta { color: var(--muted); font-size: 9pt; }
   .desc { margin-top: 1mm; }
+  .blk { margin-top: 2mm; }
+  .blk-h { color: var(--muted); font-size: 8pt; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+  .grp { margin-top: 1mm; }
+  .grp-t { font-weight: 600; }
+  .hl { margin: 0.5mm 0 0; padding-left: 4.5mm; }
+  .hl li { margin: 0 0 0.6mm; }
   .tech { margin-top: 1mm; color: var(--muted); font-size: 8.5pt; }
   .tech b { color: var(--seal); font-weight: 600; }
   .lang { margin: 0 0 1mm; }
@@ -68,11 +78,22 @@ const css = `
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; }
 `;
 
+const bullets = (items) => `<ul class="hl">${items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+
+// Sub-sections of a role: "Key projects" (named projects) or "Key contributions".
+const block = (b) => `
+    <div class="blk">
+      <div class="blk-h">${esc(b.heading)}</div>
+      ${(b.groups ?? []).map((g) => `<div class="grp"><div class="grp-t">${esc(g.title)}</div>${bullets(g.items)}</div>`).join("")}
+      ${b.items ? bullets(b.items) : ""}
+    </div>`;
+
 const item = (i, techLabel) => `
   <div class="item">
     <h3>${esc(i.title)}</h3>
     <div class="meta">${esc([i.place, i.period].filter(Boolean).join(" · "))}</div>
     ${i.description ? `<p class="desc">${esc(i.description)}</p>` : ""}
+    ${(i.blocks ?? []).map(block).join("")}
     ${i.tech?.length ? `<p class="tech"><b>${esc(techLabel)}:</b> ${esc(i.tech.join(", "))}</p>` : ""}
   </div>`;
 

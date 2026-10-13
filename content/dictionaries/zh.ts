@@ -40,8 +40,8 @@ export const zh: Dictionary = {
     skillLabels: {"frontend": "前端", "backend": "后端", "databases": "数据库", "ai": "AI / 大模型", "other": "其他"},
     experienceItems: [
       {"title": "全栈开发工程师", "place": "自由职业 · 马德里", "period": "2026年5月 – 至今", "description": "", "tech": []},
-      {"title": "全栈开发工程师", "place": "Scriptum-AI · 马德里", "period": "2025年2月 – 2026年5月", "description": "开发基于大语言模型的生产级应用。Leonardo：分析真实法庭庭审的视频与音频，自动转写、摘要并生成结构化报告；Scriptum Contract：智能文档比对。负责 LLM 生产环境集成、提示词工程与系统架构。", "tech": ["React", "Node.js", "Angular", "Python", "LLMs (Claude)"]},
-      {"title": "全栈开发工程师", "place": "Nexplore (Dimática) · 马德里 · 客户 Nexplore US 与 Hotchief Germany", "period": "2020年12月 – 2025年2月", "description": "高性能 3D 平台，用于管理点云、3D 模型和正射影像。开发测量工具、体积计算与元素映射；优化浏览器端大规模数据集的渲染，与美国和德国的远程团队协作。", "tech": ["Angular", "Python", "React", "Three.js", "Node.js", "MongoDB", "WebGL"]},
+      {"title": "全栈开发工程师", "place": "Scriptum-AI · 马德里", "period": "2025年2月 – 2026年5月", "description": "专注于 AI 的公司，开发基于大语言模型（LLM）的生产级应用。", "blocks": [{"heading": "重点项目", "groups": [{"title": "Leonardo – 案件分析平台", "items": ["开发基于 AI 的系统，分析真实法庭庭审的视频和音频。", "实现自动转写、摘要和结构化报告生成的处理流程。", "借助 LLM 提取关键要点并整理案件文档。"]}, {"title": "Scriptum Contract – 文档比对平台", "items": ["构建智能文档比对工具，用于发现差异、不一致之处和关键变更。"]}]}, {"heading": "主要贡献", "items": ["设计并在生产环境中实现 LLM 集成。", "负责提示词工程与响应优化。", "参与可扩展的 AI 驱动应用的系统架构设计。"]}], "tech": ["React", "Node.js", "Angular", "Python", "LLMs (Claude)"]},
+      {"title": "全栈开发工程师", "place": "Nexplore (Dimática) · 马德里 · 客户 Nexplore US 与 Hotchief Germany", "period": "2020年12月 – 2025年2月", "description": "高性能 3D 可视化平台，用于管理点云、3D 模型和正射影像等大规模数据集。", "blocks": [{"heading": "主要贡献", "items": ["设计并实现测量工具、体积计算和高级元素映射等核心功能。", "优化浏览器端（Three.js）大规模 3D 数据集的渲染与性能。", "与美国和德国的国际团队在完全远程的环境中协作。"]}], "tech": ["Angular", "Python", "React", "Three.js", "Node.js", "MongoDB", "WebGL"]},
       {"title": "全栈开发工程师", "place": "Mapfre (Capgemini) · 马德里", "period": "2019年10月 – 2020年12月", "description": "NSEc 车辆管理系统：从需求分析开始从零构建内部应用。主导 Angular 前端开发，集成 REST 与 SOAP 服务，并参与 Java (Spring) 后端开发，采用 Scrum 敏捷流程。", "tech": ["Angular", "Java", "Spring", "REST/SOAP", "JUnit"]},
       {"title": "DSD 中国团队协调员", "place": "DigitalSmileDesign · 马德里", "period": "2018年7月 – 2019年10月", "description": "日常协调上海设计团队的工作，经常前往上海办公室进行培训与管理，并开发工具简化设计工作，在中文环境中工作。", "tech": ["Visual Basic"]},
       {"title": "全栈开发工程师", "place": "Vintegris · 马德里 · 客户 BBVA", "period": "2015年7月 – 2018年7月", "description": "参与 BBVA 核心安全系统的演进与现代化：迁移至微服务架构，为关键安全组件开发新功能，设计并维护 SQL 与 MongoDB 数据库，使用 Vaadin 构建内部配置工具，工作环境要求高安全性与高可用性。", "tech": ["Java", "Spring", "Kubernetes", "MongoDB", "SQL", "Angular"]},
@@ -53,7 +53,6 @@ export const zh: Dictionary = {
     educationItems: [
       {"title": "计算机工程学士", "place": "巴利亚多利德大学 (UVA)", "period": "", "description": "毕业论文以优异成绩通过。", "tech": []},
       {"title": "电子游戏开发硕士", "place": "马德里康普顿斯大学 (UCM)", "period": "", "description": "", "tech": []},
-      {"title": "3D 设计硕士", "place": "Trazos · 马德里", "period": "", "description": "", "tech": []},
     ],
     languageItems: [
       {"name": "西班牙语", "level": "母语"},
