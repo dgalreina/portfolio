@@ -38,7 +38,7 @@ export const es = {
     education: "Formación",
     skills: "Tecnologías",
     languages: "Idiomas",
-    skillLabels: {"frontend": "Frontend", "backend": "Backend", "databases": "Bases de datos", "ai": "IA / LLMs", "other": "Otros"},
+    skillLabels: {"frontend": "Frontend", "backend": "Backend", "databases": "Bases de datos", "ai": "IA / LLMs", "testing": "Testing", "other": "Otros"},
     experienceItems: [
       {"title": "Desarrollador full-stack", "place": "Freelance · Madrid", "period": "may 2026 – actualidad", "description": "", "tech": []},
       {"title": "Desarrollador full-stack", "place": "Scriptum-AI · Madrid", "period": "feb 2025 – may 2026", "description": "Desarrollo de aplicaciones listas para producción basadas en LLMs para el ámbito legal.", "blocks": [{"heading": "Proyectos clave", "groups": [{"title": "Leonardo – Plataforma de análisis de casos judiciales", "items": ["Desarrollo de un sistema con IA para analizar vídeos y audios reales de vistas judiciales.", "Implementación de pipelines de transcripción automática, resumen y generación de informes estructurados.", "Extracción de conclusiones clave y documentación del caso mediante LLMs."]}, {"title": "Scriptum Contract – Plataforma de comparación de documentos legales", "items": ["Creación de una herramienta inteligente de comparación de documentos que detecta diferencias, incoherencias y cambios críticos."]}]}, {"heading": "Contribuciones clave", "items": ["Diseño e implementación de integraciones con LLMs en entornos de producción.", "Ingeniería de prompts y optimización de las respuestas.", "Contribución a la arquitectura de aplicaciones de IA escalables."]}], "tech": ["React", "Node.js", "Angular", "Python", "LLMs (Claude)"]},

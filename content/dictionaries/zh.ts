@@ -37,7 +37,7 @@ export const zh: Dictionary = {
     education: "教育背景",
     skills: "技术栈",
     languages: "语言能力",
-    skillLabels: {"frontend": "前端", "backend": "后端", "databases": "数据库", "ai": "AI / 大模型", "other": "其他"},
+    skillLabels: {"frontend": "前端", "backend": "后端", "databases": "数据库", "ai": "AI / 大模型", "testing": "测试", "other": "其他"},
     experienceItems: [
       {"title": "全栈开发工程师", "place": "自由职业 · 马德里", "period": "2026年5月 – 至今", "description": "", "tech": []},
       {"title": "全栈开发工程师", "place": "Scriptum-AI · 马德里", "period": "2025年2月 – 2026年5月", "description": "开发面向法律领域、可投入生产的大语言模型（LLM）应用。", "blocks": [{"heading": "重点项目", "groups": [{"title": "Leonardo – 司法案件分析平台", "items": ["开发基于 AI 的系统，分析真实法庭庭审的视频和音频。", "实现自动转写、摘要和结构化报告生成的处理流程。", "借助 LLM 提取关键要点并整理案件文档。"]}, {"title": "Scriptum Contract – 法律文档比对平台", "items": ["构建智能文档比对工具，用于发现差异、不一致之处和关键变更。"]}]}, {"heading": "主要贡献", "items": ["设计并在生产环境中实现 LLM 集成。", "负责提示词工程与响应优化。", "参与可扩展的 AI 驱动应用的系统架构设计。"]}], "tech": ["React", "Node.js", "Angular", "Python", "LLMs (Claude)"]},

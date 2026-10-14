@@ -38,7 +38,7 @@ export const en: Dictionary = {
     education: "Education",
     skills: "Technologies",
     languages: "Languages",
-    skillLabels: {"frontend": "Frontend", "backend": "Backend", "databases": "Databases", "ai": "AI / LLMs", "other": "Other"},
+    skillLabels: {"frontend": "Frontend", "backend": "Backend", "databases": "Databases", "ai": "AI / LLMs", "testing": "Testing", "other": "Other"},
     experienceItems: [
       {"title": "Full-stack developer", "place": "Freelance · Madrid", "period": "May 2026 – present", "description": "", "tech": []},
       {"title": "Full-stack developer", "place": "Scriptum-AI · Madrid", "period": "Feb 2025 – May 2026", "description": "Development of production-ready LLM-powered applications for the legal sector.", "blocks": [{"heading": "Key projects", "groups": [{"title": "Leonardo – Judicial Case Analysis Platform", "items": ["Developed an AI-powered system to analyze real court hearing videos and audio.", "Implemented pipelines for automatic transcription, summarization and structured report generation.", "Enabled extraction of key insights and case documentation using LLMs."]}, {"title": "Scriptum Contract – Legal Document Comparison Platform", "items": ["Built an intelligent document comparison tool to detect differences, inconsistencies and critical changes."]}]}, {"heading": "Key contributions", "items": ["Designed and implemented LLM integrations in production environments.", "Worked on prompt engineering and response optimization.", "Contributed to system architecture for scalable AI-driven applications."]}], "tech": ["React", "Node.js", "Angular", "Python", "LLMs (Claude)"]},
