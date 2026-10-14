@@ -33,7 +33,7 @@ export const es = {
     title: "CV",
     subtitle: "Experiencia, formación y tecnologías.",
     download: "Descargar CV (PDF)",
-    summary: "Ingeniero de software senior con más de 14 años de experiencia construyendo aplicaciones web escalables, especializado en visualización 3D y soluciones con IA basadas en LLMs. Sólida base en desarrollo full-stack, diseño de sistemas y optimización de rendimiento.",
+    summary: "Ingeniero de software senior con más de 14 años de experiencia construyendo aplicaciones web de punta a punta, robustas y escalables, con gran atención al detalle. Especializado en soluciones de IA basadas en LLMs. Sólida base en desarrollo full-stack, diseño de sistemas y optimización de rendimiento. Acostumbrado a llevar proyectos a producción y a mantenerlos en el tiempo, apoyando a perfiles junior y haciendo equipo.",
     experience: "Experiencia",
     education: "Formación",
     skills: "Tecnologías",

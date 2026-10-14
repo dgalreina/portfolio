@@ -33,7 +33,7 @@ export const en: Dictionary = {
     title: "Résumé",
     subtitle: "Experience, education and technologies.",
     download: "Download résumé (PDF)",
-    summary: "Senior software engineer with 14+ years of experience building scalable web applications, specialized in 3D visualization and AI-powered solutions using large language models (LLMs). Strong background in full-stack development, system design and performance optimization.",
+    summary: "Senior software engineer with 14+ years of experience building robust, scalable web applications end to end, with great attention to detail. Specialized in AI solutions based on LLMs. Strong background in full-stack development, system design and performance optimization. Used to taking projects to production and keeping them healthy over time, supporting junior developers and being a team player.",
     experience: "Experience",
     education: "Education",
     skills: "Technologies",
