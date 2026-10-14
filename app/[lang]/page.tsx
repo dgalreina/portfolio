@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { DownloadLink } from "@/components/download-link";
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
 import { profile } from "@/content/profile";
@@ -79,13 +80,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </Section>
 
       <Section id="cv" title={dict.cv.title} subtitle={dict.cv.subtitle}>
-        <a
+        <DownloadLink
           href={withBase(profile.cv[lang])}
-          download={`Diego-Galisteo-Reina-CV-${lang}.pdf`}
+          filename={`Diego-Galisteo-Reina-CV-${lang}.pdf`}
           className="mb-10 inline-block rounded-full bg-seal px-5 py-3 text-sm font-medium text-on-seal transition-colors hover:bg-seal-dark"
         >
           ↓ {dict.cv.download}
-        </a>
+        </DownloadLink>
 
         <p className="mb-12 max-w-3xl leading-7 text-foreground/80">{dict.cv.summary}</p>
 
