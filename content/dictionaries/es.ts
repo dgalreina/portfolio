@@ -66,5 +66,4 @@ export const es = {
     text: "¿Tienes un proyecto o una oferta? Escríbeme y te respondo en cuanto pueda.",
     email: "Enviar un email",
   },
-  footer: "Hecho con Next.js y Tailwind CSS",
 };

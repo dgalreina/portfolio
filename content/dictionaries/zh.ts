@@ -65,5 +65,4 @@ export const zh: Dictionary = {
     text: "有项目或职位机会？给我发邮件，我会尽快回复。",
     email: "发送邮件",
   },
-  footer: "使用 Next.js 与 Tailwind CSS 构建",
 };

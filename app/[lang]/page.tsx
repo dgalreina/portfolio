@@ -159,8 +159,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         {profile.name} ·{" "}
         <a href={profile.website} className="underline-offset-4 hover:underline">
           {profile.website.replace("https://", "")}
-        </a>{" "}
-        · {dict.footer}
+        </a>
       </footer>
     </main>
   );

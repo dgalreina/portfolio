@@ -66,5 +66,4 @@ export const en: Dictionary = {
     text: "Have a project or an opening? Drop me a line and I'll get back to you as soon as I can.",
     email: "Send an email",
   },
-  footer: "Built with Next.js and Tailwind CSS",
 };
