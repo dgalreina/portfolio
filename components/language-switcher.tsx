@@ -19,6 +19,8 @@ export function LanguageSwitcher({ lang, label }: { lang: Locale; label: string 
         <li key={l}>
           <Link
             href={`/${l}${rest}`}
+            // Stay where you were when switching language (same page, other language).
+            scroll={false}
             hrefLang={l}
             lang={l}
             aria-current={l === lang ? "true" : undefined}

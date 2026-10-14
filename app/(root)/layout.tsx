@@ -18,7 +18,7 @@ export default function RootRedirectLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className="min-h-screen flex items-center justify-center">
         {children}
       </body>

@@ -56,6 +56,9 @@ export default async function LangLayout({
   return (
     <html
       lang={htmlLang[lang]}
+      // Next 16 no longer turns off our smooth scrolling on page changes; this asks it to
+      // (route changes jump instantly, in-page anchor links still glide).
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col">
