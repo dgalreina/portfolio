@@ -19,6 +19,8 @@ export type Project = {
   /** Where the code lives; the visitor picks the repo from there. */
   repo?: string;
   status: "live" | "in-progress";
+  /** Another project this one is connected to (shown as a link on the detail page). */
+  related?: Project["slug"];
 };
 
 // TODO: fill in tech, demo and repo URLs. Buttons are hidden when a URL is missing.
@@ -69,10 +71,27 @@ export const projects: Project[] = [
       { src: "/projects/china-history-3.png", width: 1420, height: 1560 },
     ],
     status: "live",
+    related: "historical-documents-reader",
   },
   {
     slug: "historical-documents-reader",
-    tech: ["Next.js", "NestJS", "MongoDB", "TypeScript"],
-    status: "in-progress",
+    tech: [
+      "Python",
+      "AWS Lambda",
+      "Step Functions",
+      "DynamoDB",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "AWS CDK",
+      "S3",
+      "CloudFront",
+      "Cognito",
+      "MongoDB Atlas",
+      "OpenAI",
+    ],
+    status: "live",
+    related: "china-history",
   },
 ];

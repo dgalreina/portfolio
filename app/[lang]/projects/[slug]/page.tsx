@@ -49,6 +49,12 @@ export default async function ProjectPage({
 
   const dict = getDictionary(lang);
   const text = dict.projects.items[project.slug];
+  const related = project.related ? projects.find((p) => p.slug === project.related) : undefined;
+  const relatedText = related ? text.related : null;
+  // Nothing to show on the left (no video, screenshots or image) and not marked "in progress".
+  const hasMedia = Boolean(
+    project.fullVideo || project.gallery || project.image || project.status === "in-progress",
+  );
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10">
@@ -60,6 +66,7 @@ export default async function ProjectPage({
       </Link>
 
       <div className="mt-6 flex flex-col gap-10 md:flex-row md:items-start">
+        {hasMedia && (
         <div className={project.portrait
             ? "w-full shrink-0 md:w-[calc(min(80vh,900px)*720/1458)]"
             : "md:w-1/2 md:shrink-0"}>
@@ -132,8 +139,11 @@ export default async function ProjectPage({
             </div>
           )}
         </div>
+        )}
 
-        <div className="flex min-w-0 flex-1 flex-col gap-6 md:sticky md:top-20">
+        <div
+          className={`flex min-w-0 flex-1 flex-col gap-6 ${hasMedia ? "md:sticky md:top-20" : "max-w-3xl"}`}
+        >
           <div>
             {project.status === "in-progress" && project.image && (
               <span className="mb-3 inline-block rounded-full bg-seal px-3 py-1 text-xs font-medium text-on-seal">
@@ -225,6 +235,20 @@ export default async function ProjectPage({
             </div>
           )}
 
+          {related && relatedText && (
+            <div className="rounded-xl border border-seal/30 bg-seal/5 p-5">
+              <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">
+                {dict.projects.relatedTitle}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-foreground/80">{relatedText.text}</p>
+              <Link
+                href={`/${lang}/projects/${related.slug}/`}
+                className="mt-4 inline-block rounded-full border border-foreground/20 px-5 py-3 text-sm font-medium transition-colors hover:bg-foreground/10"
+              >
+                {relatedText.cta} →
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </main>
