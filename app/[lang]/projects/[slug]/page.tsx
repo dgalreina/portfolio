@@ -207,6 +207,7 @@ export default async function ProjectPage({
                 <dt className="text-foreground/60">{dict.projects.demoAccount.password}</dt>
                 <dd className="font-mono select-all">{project.demoAccount.password}</dd>
               </dl>
+              {text.demoNote && <p className="mt-3 text-xs text-foreground/60">{text.demoNote}</p>}
             </div>
           )}
 
