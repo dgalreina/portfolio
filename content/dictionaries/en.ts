@@ -16,7 +16,7 @@ export const en: Dictionary = {
   },
   projects: {
     title: "Projects",
-    subtitle: "Three apps, each with its own backend. See them in action and click for the details.",
+    subtitle: "Three projects, from idea to production. Click any of them for the details.",
     demo: "Demo",
     repo: "GitHub",
     inProgress: "In progress",
