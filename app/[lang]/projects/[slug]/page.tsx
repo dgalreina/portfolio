@@ -97,7 +97,7 @@ export default async function ProjectPage({
                     <figure>
                       <Image
                         src={withBase(img.src)}
-                        alt={text.gallery[i] ?? text.name}
+                        alt={text.gallery[i] || text.name}
                         width={img.width}
                         height={img.height}
                         priority={i === 0}
