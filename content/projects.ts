@@ -75,6 +75,8 @@ export const projects: Project[] = [
   },
   {
     slug: "historical-documents-reader",
+    image: "/projects/historical-documents-reader.jpg",
+    gallery: [{ src: "/projects/historical-documents-reader-1.jpg", width: 2000, height: 1054 }],
     tech: [
       "Python",
       "AWS Lambda",
