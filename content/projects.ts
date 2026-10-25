@@ -1,3 +1,10 @@
+import type { Locale } from "@/lib/i18n";
+
+type ImageFile = { src: string; width: number; height: number };
+
+/** A screenshot for the detail page; `variants` holds a different file per language (e.g. a diagram with text). */
+export type GalleryImage = ImageFile & { variants?: Partial<Record<Locale, ImageFile>> };
+
 export type Project = {
   slug: "zitytraining" | "china-history" | "historical-documents-reader";
   tech: string[];
@@ -12,7 +19,7 @@ export type Project = {
   /** Large still shown before the full video starts. */
   poster?: string;
   /** Extra screenshots for the detail page (captions live in the dictionaries, same order). */
-  gallery?: { src: string; width: number; height: number }[];
+  gallery?: GalleryImage[];
   demo?: string;
   /** Public test account shown next to the demo button. */
   demoAccount?: { email: string; password: string };
@@ -28,7 +35,12 @@ export const projects: Project[] = [
   {
     slug: "historical-documents-reader",
     image: "/projects/historical-documents-reader.jpg",
-    gallery: [{ src: "/projects/historical-documents-reader-1.jpg", width: 2000, height: 1054 }],
+    gallery: [
+      { src: "/projects/historical-documents-reader-1.jpg", width: 2000, height: 1054 },
+      // Architecture diagram: Spanish for now. Add `variants: { en: {...}, zh: {...} }` when the
+      // English and Chinese versions exist; until then those languages show this one.
+      { src: "/projects/historical-documents-reader-architecture-es.jpg", width: 1353, height: 2000 },
+    ],
     tech: [
       "Python",
       "AWS Lambda",

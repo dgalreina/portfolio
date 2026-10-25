@@ -88,8 +88,10 @@ export default async function ProjectPage({
             </video>
           ) : project.gallery ? (
             <ul className="space-y-4">
-              {project.gallery.map((img, i) => (
-                <li key={img.src}>
+              {project.gallery.map((base, i) => {
+                const img = base.variants?.[lang] ?? base; // this language's file, if it has one
+                return (
+                <li key={base.src}>
                   {/* Opens the full-size file: the screenshots contain small text. */}
                   <a href={withBase(img.src)} target="_blank" rel="noopener noreferrer">
                     <figure>
@@ -110,7 +112,8 @@ export default async function ProjectPage({
                     </figure>
                   </a>
                 </li>
-              ))}
+                );
+              })}
             </ul>
           ) : (
             <div
