@@ -37,13 +37,13 @@ export const projects: Project[] = [
     image: "/projects/historical-documents-reader.jpg",
     gallery: [
       { src: "/projects/historical-documents-reader-1.jpg", width: 2000, height: 1054 },
-      // Architecture diagram: Spanish by default, Chinese version for /zh. Add `en: {...}` to
-      // `variants` when the English one exists; until then English shows the Spanish one.
+      // Architecture diagram: the Spanish file is the default; /en and /zh have their own versions.
       {
         src: "/projects/historical-documents-reader-architecture-es.jpg",
         width: 1353,
         height: 2000,
         variants: {
+          en: { src: "/projects/historical-documents-reader-architecture-en.jpg", width: 1344, height: 2000 },
           zh: { src: "/projects/historical-documents-reader-architecture-zh.jpg", width: 1420, height: 1999 },
         },
       },
