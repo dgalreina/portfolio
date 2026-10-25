@@ -37,9 +37,16 @@ export const projects: Project[] = [
     image: "/projects/historical-documents-reader.jpg",
     gallery: [
       { src: "/projects/historical-documents-reader-1.jpg", width: 2000, height: 1054 },
-      // Architecture diagram: Spanish for now. Add `variants: { en: {...}, zh: {...} }` when the
-      // English and Chinese versions exist; until then those languages show this one.
-      { src: "/projects/historical-documents-reader-architecture-es.jpg", width: 1353, height: 2000 },
+      // Architecture diagram: Spanish by default, Chinese version for /zh. Add `en: {...}` to
+      // `variants` when the English one exists; until then English shows the Spanish one.
+      {
+        src: "/projects/historical-documents-reader-architecture-es.jpg",
+        width: 1353,
+        height: 2000,
+        variants: {
+          zh: { src: "/projects/historical-documents-reader-architecture-zh.jpg", width: 1420, height: 1999 },
+        },
+      },
     ],
     tech: [
       "Python",
