@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "DigitalOcean Spaces",
     ],
     image: "/projects/china-history.jpg",
-    demo: "https://china-history-web-3es2e.ondigitalocean.app/",
+    demo: "https://dgalreina.github.io/china-history-web/",
     gallery: [
       { src: "/projects/china-history-1.jpg", width: 2000, height: 1052 },
       { src: "/projects/china-history-2.jpg", width: 2000, height: 1054 },
