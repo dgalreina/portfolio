@@ -71,6 +71,7 @@ const css = `
   .grp-t { font-weight: 600; }
   .hl { margin: 0.5mm 0 0; padding-left: 4.5mm; }
   .hl li { margin: 0 0 0.6mm; }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--seal); }
   .tech { margin-top: 1mm; color: var(--muted); font-size: 8.5pt; }
   .tech b { color: var(--seal); font-weight: 600; }
   .lang { margin: 0 0 1mm; }
@@ -78,24 +79,36 @@ const css = `
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10mm; }
 `;
 
-const bullets = (items) => `<ul class="hl">${items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+// "Lead — detail": the lead is shown in bold.
+const bullet = (text) => {
+  const [lead, ...rest] = text.split(" — ");
+  return rest.length ? `<li><b>${esc(lead)}</b> — ${esc(rest.join(" — "))}</li>` : `<li>${esc(text)}</li>`;
+};
+const bullets = (items) => `<ul class="hl">${items.map(bullet).join("")}</ul>`;
+
+// The site address in a sentence becomes a link.
+const withSiteLink = (text) => esc(text).replace(/dgalreina\.com/, '<a href="https://dgalreina.com">dgalreina.com</a>');
 
 // Sub-sections of a role: "Key projects" (named projects) or "Key contributions".
 const block = (b) => `
     <div class="blk">
-      <div class="blk-h">${esc(b.heading)}</div>
+      ${b.heading ? `<div class="blk-h">${esc(b.heading)}</div>` : ""}
       ${(b.groups ?? []).map((g) => `<div class="grp"><div class="grp-t">${esc(g.title)}</div>${bullets(g.items)}</div>`).join("")}
       ${b.items ? bullets(b.items) : ""}
     </div>`;
 
-const item = (i, techLabel) => `
+const item = (role, techLabel) => {
+  const i = { ...role, ...(role.pdf ?? {}) };
+  return `
   <div class="item">
     <h3>${esc(i.title)}</h3>
     <div class="meta">${esc([i.place, i.period].filter(Boolean).join(" · "))}</div>
     ${i.description ? `<p class="desc">${esc(i.description)}</p>` : ""}
     ${(i.blocks ?? []).map(block).join("")}
+    ${i.note ? `<p class="desc">${withSiteLink(i.note)}</p>` : ""}
     ${i.tech?.length ? `<p class="tech"><b>${esc(techLabel)}:</b> ${esc(i.tech.join(", "))}</p>` : ""}
   </div>`;
+};
 
 function html(lang, dict) {
   const { cv } = dict;
