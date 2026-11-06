@@ -178,9 +178,23 @@ type Block = {
 function Bullets({ items }: { items: string[] }) {
   return (
     <ul className="mt-1 list-disc space-y-1 pl-5 text-sm leading-6 text-foreground/70">
-      {items.map((text) => (
-        <li key={text}>{text}</li>
-      ))}
+      {items.map((text) => {
+        // "Lead — detail": the lead (e.g. a project name) is shown in bold.
+        const [lead, ...rest] = text.split(" — ");
+        return (
+          <li key={text}>
+            {rest.length > 0 ? (
+              <>
+                <strong className="font-semibold text-foreground">{lead}</strong>
+                {" — "}
+                {rest.join(" — ")}
+              </>
+            ) : (
+              text
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -210,9 +224,11 @@ function Timeline({ title, items }: { title: string; items: TimelineItem[] }) {
             )}
             {item.blocks?.map((block) => (
               <div key={block.heading} className="mt-4">
-                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">
-                  {block.heading}
-                </p>
+                {block.heading && (
+                  <p className="text-xs font-semibold uppercase tracking-wide text-foreground/50">
+                    {block.heading}
+                  </p>
+                )}
                 {block.groups?.map((group) => (
                   <div key={group.title} className="mt-2">
                     <p className="text-sm font-medium">{group.title}</p>
