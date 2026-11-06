@@ -9,6 +9,7 @@ export const profile = {
     { key: "frontend", items: ["React", "Next.js", "Angular", "NgRx", "Three.js", "TypeScript"] },
     { key: "backend", items: ["Node.js", "NestJS", "Python", "Java (Spring)"] },
     { key: "databases", items: ["MongoDB", "SQL"] },
+    { key: "cloud", items: ["AWS", "AWS CDK", "Lambda", "S3"] },
     {
       key: "ai",
       items: ["LLM integration (Claude, OpenAI)", "LangChain", "LangGraph", "RAG", "Prompt engineering"],
